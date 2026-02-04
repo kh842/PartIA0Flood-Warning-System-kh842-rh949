@@ -43,13 +43,16 @@ class MonitoringStation:
     def typical_range_consistent(self):
         if not self.typical_range:
             return False
+            # returns false for any stations with no data
         elif self.typical_range[0] > self.typical_range[1]:
             return False
+            # returns false for any stations with typical low below typical high
         else:
             return True
         
 
 
 def inconsistent_typical_range_stations(stations):
+    # below uses filter to remove any stations that do have consistent typical ranges
     station_list = list(filter(lambda x: not x.typical_range_consistent(), stations))
     return station_list
