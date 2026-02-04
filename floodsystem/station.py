@@ -53,6 +53,6 @@ class MonitoringStation:
 
 
 def inconsistent_typical_range_stations(stations):
-    # below uses filter to remove any stations that do have consistent typical ranges
+    # below uses filter to remove any stations that DO have consistent typical ranges
     station_list = list(filter(lambda x: not x.typical_range_consistent(), stations))
     return station_list
