@@ -38,3 +38,6 @@ def stations_within_radius(stations, centre, r):
         if station[1] <= r:
             station_list.append(station[0])
     return station_list
+
+#def rivers_with_station(stations):
+
