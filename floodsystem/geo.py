@@ -39,5 +39,12 @@ def stations_within_radius(stations, centre, r):
             station_list.append(station[0])
     return station_list
 
-#def rivers_with_station(stations):
+def rivers_with_station(stations):
+    stations_list=[]
+
+    for i in range (len(stations)):
+        stations_list.append(stations[i].river)
+    return stations_list
+        
+
 
