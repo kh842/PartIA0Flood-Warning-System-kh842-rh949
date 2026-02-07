@@ -39,12 +39,32 @@ def stations_within_radius(stations, centre, r):
             station_list.append(station[0])
     return station_list
 
+
+#task 1d
 def rivers_with_station(stations):
     stations_list=[]
 
     for i in range (len(stations)):
         stations_list.append(stations[i].river)
     return stations_list
-        
+
+
+
+def stations_by_river(s_list):
+
+    river_dict = {}
+
+    #for i in range (len(r_list)):
+
+        #river_dict[r_list[i]]=  None
+
+    
+    for s in s_list:
+        if s.river not in river_dict:
+            river_dict[s.river] = []
+
+        river_dict[s.river].append(s.name)
+    return river_dict
+    
 
 
