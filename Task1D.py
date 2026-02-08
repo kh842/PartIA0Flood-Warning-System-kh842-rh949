@@ -1,6 +1,7 @@
 from floodsystem.stationdata import build_station_list
 from floodsystem.geo import rivers_with_station
 from floodsystem.geo import stations_by_river
+from floodsystem.geo import rivers_by_station_number
 
 
 
@@ -30,5 +31,10 @@ print("The stations in River Cam are "+ str(test))
 test = dick.get("River Thames")
 test.sort()
 print("The stations in River Thames are "+ str(test))
+
+hi= len(dick.get("River Thames"))
+print(hi)
 #print(river_list_norep)
 #print(stations_by_river(stations))
+
+print(rivers_by_station_number(stations))

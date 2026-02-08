@@ -66,5 +66,29 @@ def stations_by_river(s_list):
         river_dict[s.river].append(s.name)
     return river_dict
     
+#task 1e
+def rivers_by_station_number(s_list):
+    dick= stations_by_river(s_list)
+    dick_counter  = {}
+
+    for s in s_list:
+        if s.river not in dick_counter:
+            dick_counter[s.river]=[]
+        
+            dick_counter[s.river] = len(dick.get(s.river))
+        #if dick_counter.get(s.river) is None:
+            #dick_counter[s.river] = len(dick.get(s.river))
+
+
+        #dick_counter.setdefault(s.river, len(dick.get(s.river)))
+    return dick_counter
+
+
+
+
+
+
+
+
 
 
