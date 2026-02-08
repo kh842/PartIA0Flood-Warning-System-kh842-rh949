@@ -67,7 +67,7 @@ def stations_by_river(s_list):
     return river_dict
     
 #task 1e
-def rivers_by_station_number(s_list):
+def rivers_by_station_number(s_list, N):
     dick= stations_by_river(s_list)
     dick_counter  = {}
 
@@ -76,12 +76,16 @@ def rivers_by_station_number(s_list):
             dick_counter[s.river]=[]
         
             dick_counter[s.river] = len(dick.get(s.river))
-        #if dick_counter.get(s.river) is None:
-            #dick_counter[s.river] = len(dick.get(s.river))
 
+    sorted_dick= dict(sorted(dick_counter.items(), key=lambda item: item[1], reverse=True))
+    dick_tuple = tuple(sorted_dick.items())
 
-        #dick_counter.setdefault(s.river, len(dick.get(s.river)))
-    return dick_counter
+          
+    cut_off= dick_tuple[N-1][1]
+    for i in range (len(dick_tuple)):
+        if dick_tuple[i-1][1] == cut_off:
+            n=i
+    return dick_tuple[:n]
 
 
 

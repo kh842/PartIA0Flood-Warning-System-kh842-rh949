@@ -37,4 +37,4 @@ print(hi)
 #print(river_list_norep)
 #print(stations_by_river(stations))
 
-print(rivers_by_station_number(stations))
+print("when N is 9 these are the top 9(or more) rivers "+ str(rivers_by_station_number(stations, 9)))
