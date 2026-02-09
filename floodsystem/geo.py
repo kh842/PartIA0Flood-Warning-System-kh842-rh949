@@ -20,7 +20,7 @@ def haversine(c1, c2):
     return 6371 * theta
     # we multiply by the radius to obtain the distance
 
-
+#task 1b
 def stations_by_distance(stations, p):
     station_list = []
     for station in stations:
@@ -64,7 +64,18 @@ def stations_by_river(s_list):
             river_dict[s.river] = []
 
         river_dict[s.river].append(s.name)
+
+    river_list_norep = []
+
+    for river in river_dict:
+        if river not in river_list_norep:
+            river_list_norep.append(river)
+
+    river_list_norep.sort()
+
     return river_dict
+
+    
     
 #task 1e
 def rivers_by_station_number(s_list, N):
@@ -86,8 +97,6 @@ def rivers_by_station_number(s_list, N):
         if dick_tuple[i-1][1] == cut_off:
             n=i
     return dick_tuple[:n]
-
-
 
 
 
