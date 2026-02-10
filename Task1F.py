@@ -2,6 +2,7 @@ from floodsystem.stationdata import build_station_list
 from floodsystem.station import inconsistent_typical_range_stations
 
 def run():
+    """Requirements for Task 1F"""
     stations = build_station_list()
     stations_inconsistent_data = inconsistent_typical_range_stations(stations)
     stations_ordered = sorted([station.name for station in stations_inconsistent_data])

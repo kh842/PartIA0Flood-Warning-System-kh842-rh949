@@ -23,6 +23,9 @@ def haversine(c1, c2):
 
 #task 1b
 def stations_by_distance(stations, p):
+    """This function is given a list of station objects and a coordinate p(tuple of floats), and returns a list of tuples with
+    the station and its distance from the coordiante
+    """
     station_list = []
     for station in stations:
         # iterates through station list, calculating the distance and adding the appropriat tuple
