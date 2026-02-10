@@ -10,6 +10,7 @@ from .utils import sorted_by_key  # noqa
 from math import cos, acos, pi
 
 def cos_deg(degrees):
+    """This function takes an input in degrees and returns the cosine of the input"""
     return cos(degrees/360 * 2 * pi)
 
 
@@ -79,25 +80,33 @@ def stations_by_river(s_list):
     
 #task 1e
 def rivers_by_station_number(s_list, N):
-    dick= stations_by_river(s_list)
-    dick_counter  = {}
+
+    """This function takes an input of a list of station objects and an arbitary number,
+       the function counts up how many monitering stations are along each river and puts them into a tuple
+       and then orders them from highest to lowest number of stations and outputs the top N rivers along
+       with the number of stations they have, if there is a tie it extends the number of rivers of the output 
+       until there is no tie.
+    """
+
+
+    dick= stations_by_river(s_list) #creates a dictionary of all the river and their stations
+    dick_counter  = {} #create sempty dictionary to count how many stations along each river
 
     for s in s_list:
         if s.river not in dick_counter:
-            dick_counter[s.river]=[]
+            dick_counter[s.river]=[] #adds each river to dick_counter
         
-            dick_counter[s.river] = len(dick.get(s.river))
+            dick_counter[s.river] = len(dick.get(s.river)) #adds how many stations there are to the dictionary
 
-    sorted_dick= dict(sorted(dick_counter.items(), key=lambda item: item[1], reverse=True))
-    dick_tuple = tuple(sorted_dick.items())
+    sorted_dick= dict(sorted(dick_counter.items(), key=lambda item: item[1], reverse=True)) #sorting the dictionary into highest to lowest order
+    dick_tuple = tuple(sorted_dick.items()) #makes dict into tuple to manipualte
 
           
-    cut_off= dick_tuple[N-1][1]
-    for i in range (len(dick_tuple)):
+    cut_off= dick_tuple[N-1][1] #finds cut off number of stations incase there is a tie
+    for i in range (len(dick_tuple)): #finds which river to end at
         if dick_tuple[i-1][1] == cut_off:
             n=i
-    return dick_tuple[:n]
-
+    return dick_tuple[:n] #outputs the top N rivers along with number of stations
 
 
 
