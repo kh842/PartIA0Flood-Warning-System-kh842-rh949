@@ -33,7 +33,12 @@ def stations_by_distance(stations, p):
         station_list.append((station, distance))
     return sorted_by_key(station_list,1)
 
+
+#task 1c
 def stations_within_radius(stations, centre, r):
+    """This function is given a list of station objects, a centre cooridnate and a radius r,
+    and returns a list of all the fucntions that are in this circle
+    """
     # uses stations by distance to find station distances from the centre
     stations_with_distance = stations_by_distance(stations, centre)
     station_list = []
@@ -51,8 +56,6 @@ def rivers_with_station(stations):
     for i in range (len(stations)):
         stations_list.append(stations[i].river)
     return stations_list
-
-
 
 def stations_by_river(s_list):
 
