@@ -109,14 +109,14 @@ def rivers_by_station_number(s_list, N):
     """
 
 
-    dict= stations_by_river(s_list) #creates a dictionary of all the river and their stations
+    dictionary = stations_by_river(s_list) #creates a dictionary of all the river and their stations
     dict_counter  = {} #create sempty dictionary to count how many stations along each river
 
     for s in s_list:
         if s.river not in dict_counter:
             dict_counter[s.river]=[] #adds each river to dict_counter
         
-            dict_counter[s.river] = len(dict.get(s.river)) #adds how many stations there are to the dictionary
+            dict_counter[s.river] = len(dictionary.get(s.river)) #adds how many stations there are to the dictionary
 
     sorted_dict= dict(sorted(dict_counter.items(), key=lambda item: item[1], reverse=True)) #sorting the dictionary into highest to lowest order
     dict_tuple = tuple(sorted_dict.items()) #makes dict into tuple to manipualte

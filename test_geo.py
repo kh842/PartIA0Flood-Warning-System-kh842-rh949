@@ -66,4 +66,3 @@ def test_rivers_by_station_number():
     assert(rivers[1][1] == stations_count[1])
     assert(rivers[2][1] == stations_count[2])
         
-
