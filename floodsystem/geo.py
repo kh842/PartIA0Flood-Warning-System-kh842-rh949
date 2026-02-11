@@ -15,6 +15,7 @@ def cos_deg(degrees):
 
 
 def haversine(c1, c2):
+    """This function takes two coordiantes as an input and returns the distance in between them"""
     hav_theta = (1-cos_deg(c1[0]-c2[0]))/2 + cos_deg(c1[0])* cos_deg(c2[0]) * (1-cos_deg(c1[1]-c2[1]))/2
     theta = acos(1-2*hav_theta)
     # above we use the appropriate formula to calculate the central angle between the two points
@@ -33,7 +34,12 @@ def stations_by_distance(stations, p):
         station_list.append((station, distance))
     return sorted_by_key(station_list,1)
 
+
+#task 1c
 def stations_within_radius(stations, centre, r):
+    """This function is given a list of station objects, a centre cooridnate and a radius r,
+    and returns a list of all the fucntions that are in this circle
+    """
     # uses stations by distance to find station distances from the centre
     stations_with_distance = stations_by_distance(stations, centre)
     station_list = []
@@ -46,16 +52,27 @@ def stations_within_radius(stations, centre, r):
 
 #task 1d
 def rivers_with_station(stations):
+    """"this function takes a list of station objects and makes them into a 
+    string list sorted in alphabetical order with no repeats"""
     stations_list=[]
 
     for i in range (len(stations)):
         stations_list.append(stations[i].river)
-    return stations_list
 
 
+    river_list_norep = []
+
+    for river in stations_list:
+       if river not in river_list_norep:
+           river_list_norep.append(river)
+
+    river_list_norep.sort()
+
+    return river_list_norep
 
 def stations_by_river(s_list):
-
+    """This fucntion takes a list of station objects and outputs a dictionary with the
+    river as the key and a list of the stations as the value"""
     river_dict = {}
 
     #for i in range (len(r_list)):

@@ -9,17 +9,7 @@ def run():
    stations= build_station_list()
    stations_list=rivers_with_station(stations)
 
-   river_list_norep = []
-
-   for river in stations_list:
-       if river not in river_list_norep:
-           river_list_norep.append(river)
-
-   river_list_norep.sort()
-
-#rivers_with_station(stations)
-
-   print(str(len(river_list_norep)) + " stations"+ " The first 10 are "+ str(river_list_norep[:9]))
+   print(str(len(stations_list)) + " stations"+ " The first 10 are "+ str(stations_list[:9]))
 
 
    dick= stations_by_river(stations)

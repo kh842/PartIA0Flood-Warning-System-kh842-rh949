@@ -41,6 +41,8 @@ class MonitoringStation:
         return d
 
     def typical_range_consistent(self):
+        """method that checks range of data for consistency, retursn true if data is consistent 
+        and false if data is false"""
         if not self.typical_range:
             return False
             # returns false for any stations with no data
@@ -53,6 +55,8 @@ class MonitoringStation:
 
 
 def inconsistent_typical_range_stations(stations):
+    """a function when given a list of station objects, returns a list of stations 
+    with inconsistent data"""
     # below uses filter to remove any stations that DO have consistent typical ranges
     station_list = list(filter(lambda x: not x.typical_range_consistent(), stations))
     return station_list
