@@ -14,6 +14,7 @@ def test_stations_by_distance():
         assert(station[1] >= previous_value) # ensures the list is ordered by distance
         previous_value = station[1]
 
+
 def test_stations_within_radius():
     # build station list
     station_list = build_station_list()
@@ -24,12 +25,14 @@ def test_stations_within_radius():
         distance = haversine(centre, station.coord) # calculate distance from the centre
         assert(distance <= distance_max) # check all stations are within specified distance
 
+
 def test_rivers_with_station():
     # build station list
     station_list = build_station_list()
     rivers =  rivers_with_station(station_list)
     for river in rivers:
         assert(rivers.count(river) == 1) # check each item only appears once
+
 
 def test_stations_by_river():
     # build station list
@@ -38,6 +41,7 @@ def test_stations_by_river():
     for river in rivers_and_stations:
         for station in rivers_and_stations[river]:
             assert(river == station.river) # check each key maps to the correct station
+
 
 def test_rivers_by_station_number():
     # build station list
@@ -63,6 +67,3 @@ def test_rivers_by_station_number():
     assert(rivers[2][1] == stations_count[2])
         
 
-test_rivers_by_station_number()
-test_rivers_with_station()
-test_stations_by_river() 

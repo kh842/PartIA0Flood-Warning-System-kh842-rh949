@@ -84,7 +84,7 @@ def stations_by_river(s_list):
         if s.river not in river_dict:
             river_dict[s.river] = []
 
-        river_dict[s.river].append(s.name)
+        river_dict[s.river].append(s)
 
     river_list_norep = []
 
