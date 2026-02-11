@@ -109,24 +109,24 @@ def rivers_by_station_number(s_list, N):
     """
 
 
-    dick= stations_by_river(s_list) #creates a dictionary of all the river and their stations
-    dick_counter  = {} #create sempty dictionary to count how many stations along each river
+    dict= stations_by_river(s_list) #creates a dictionary of all the river and their stations
+    dict_counter  = {} #create sempty dictionary to count how many stations along each river
 
     for s in s_list:
-        if s.river not in dick_counter:
-            dick_counter[s.river]=[] #adds each river to dick_counter
+        if s.river not in dict_counter:
+            dict_counter[s.river]=[] #adds each river to dict_counter
         
-            dick_counter[s.river] = len(dick.get(s.river)) #adds how many stations there are to the dictionary
+            dict_counter[s.river] = len(dict.get(s.river)) #adds how many stations there are to the dictionary
 
-    sorted_dick= dict(sorted(dick_counter.items(), key=lambda item: item[1], reverse=True)) #sorting the dictionary into highest to lowest order
-    dick_tuple = tuple(sorted_dick.items()) #makes dict into tuple to manipualte
+    sorted_dict= dict(sorted(dict_counter.items(), key=lambda item: item[1], reverse=True)) #sorting the dictionary into highest to lowest order
+    dict_tuple = tuple(sorted_dict.items()) #makes dict into tuple to manipualte
 
           
-    cut_off= dick_tuple[N-1][1] #finds cut off number of stations incase there is a tie
-    for i in range (len(dick_tuple)): #finds which river to end at
-        if dick_tuple[i-1][1] == cut_off:
+    cut_off= dict_tuple[N-1][1] #finds cut off number of stations incase there is a tie
+    for i in range (len(dict_tuple)): #finds which river to end at
+        if dict_tuple[i-1][1] == cut_off:
             n=i
-    return dick_tuple[:n] #outputs the top N rivers along with number of stations
+    return dict_tuple[:n] #outputs the top N rivers along with number of stations
 
 
 

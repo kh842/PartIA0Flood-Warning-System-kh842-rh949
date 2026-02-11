@@ -12,18 +12,18 @@ def run():
    print(str(len(stations_list)) + " stations"+ " The first 10 are "+ str(stations_list[:9]))
 
 
-   dick= stations_by_river(stations)
-   test = dick.get("River Aire")
+   dict= stations_by_river(stations)
+   test = dict.get("River Aire")
    test.sort()
    print("The stations in River Aire are "+ str(test))
-   test = dick.get("River Cam")
+   test = dict.get("River Cam")
    test.sort()
    print("The stations in River Cam are "+ str(test))
-   test = dick.get("River Thames")
+   test = dict.get("River Thames")
    test.sort()
    print("The stations in River Thames are "+ str(test))
 
-   hi= len(dick.get("River Thames"))
+   hi= len(dict.get("River Thames"))
    print(hi)
 if __name__ == "__main__":
     print("*** Task 1D: CUED Part IA Flood Warning System ***")
