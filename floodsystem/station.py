@@ -5,7 +5,7 @@
 for manipulating/modifying station data
 
 """
-
+from datafetcher import fetch_latest_water_level_data
 
 class MonitoringStation:
     """This class represents a river level monitoring station"""
@@ -51,6 +51,13 @@ class MonitoringStation:
             # returns false for any stations with typical low below typical high
         else:
             return True
+        
+        def relative_water_level(self):
+            """This method gives the water level as a number between 0 and compared to the relative range"""
+            self.latest_level= fetch_latest_water_level_data(self)
+            
+            
+
         
 
 
