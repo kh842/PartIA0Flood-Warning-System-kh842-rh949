@@ -10,7 +10,10 @@ def run():
     # Update latest level data for all stations
     update_water_levels(stations)
     hi=stations_highest_rel_level(stations,6)
-    print(hi)
+
+    for i in range(len(hi)):
+        print(str(hi[i][0])+"  "+str(hi[i][1]))
+    
 
     
 

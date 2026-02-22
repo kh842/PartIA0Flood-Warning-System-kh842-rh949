@@ -107,7 +107,7 @@ def stations_highest_rel_level(stations, N):
     river=[]
     for i in range(len(stations)):
         new_tuple=(stations[i].name,stations[i].relative_water_level())
-        list.append(new_tuple)
+        river.append(new_tuple)
     sorted_river = sorted(river, key=lambda x: float('-inf') if x[1] is None else x[1], reverse=True)
 
     top_N=sorted_river[:N]
