@@ -4,6 +4,8 @@ from floodsystem.stationdata import build_station_list
 from floodsystem.flood import stations_highest_rel_level
 import datetime
 
+import matplotlib
+
 def run():
     stations = build_station_list()
     top_stations = stations_highest_rel_level(stations, 5)

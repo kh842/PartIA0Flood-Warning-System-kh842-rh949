@@ -60,6 +60,7 @@ class MonitoringStation:
 
     #2b    
     def relative_water_level(self):
+        """Methdod that takes the station object as an input and outputs  the latest water level as a fraction of the typical range"""
         if self.latest_level is None:
             return None
         if not self.typical_range_consistent():
@@ -75,23 +76,6 @@ class MonitoringStation:
 
      
 
-def stations_level_over_threshold(stations, tol):
-    
-    river_tuple=[]
-
-    for i in range(len(stations)):
-        new_tuple=(stations[i].name,stations[i].relative_water_level())
-        river_tuple.append(new_tuple)
-    sorted_river = sorted(river_tuple, key=lambda x: float('-inf') if x[1] is None else x[1], reverse=True)
-    filtered = [t for t in sorted_river if t[1] is not None]
-    final=[]
-    for  i in range(len(filtered)):
-     if filtered[i][1]>tol:
-         final.append(filtered[i])
-
-    
-
-    return final
 
 
 def inconsistent_typical_range_stations(stations):
