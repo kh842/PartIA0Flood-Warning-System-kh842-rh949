@@ -72,3 +72,30 @@ def test_inconsistent_typical_range_stations():
             assert(trange[0]>trange[1]) # check if the lower boundary is higher than the higher boundary
         # if there is no range, then it should automatically be in this list
         # hence another if statement isn't required to check if theres no range instead.
+
+
+def test_relative_water_level():
+    # Create a test station with a valid range
+    s_id = "test-s-id"
+    m_id = "test-m-id"
+    label = "some station"
+    coord = (-2.0, 4.0)
+    trange = (1, 2)
+    river = "River X"
+    town = "My Town"
+    s = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
+    s.latest_level = 1.5
+    assert s.relative_water_level() == 0.5
+
+    # Create a station with an invalid trange
+    s_id = "test-s-id"
+    m_id = "test-m-id"
+    label = "some station"
+    coord = (-2.0, 4.0)
+    trange = (-2.3, -3.4445)
+    river = "River X"
+    town = "My Town"
+    s = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
+    s.latest_level = 1.5
+    assert s.relative_water_level() == None
+
