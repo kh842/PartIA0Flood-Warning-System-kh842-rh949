@@ -11,16 +11,34 @@ import datetime
 def run():
     stations = build_station_list()
     update_water_levels(stations)
-    print("Aryan is a battyman")
-    tuple1=()
+    risk_dict = {}
 
-    high= stations_level_over_threshold(stations,1.5)
-    med= stations_level_over_threshold(stations,1)
-    low= stations_level_over_threshold(stations,-100000)
-    for i in range (len(high)):
-        tuple1.append((str(high[i][0].name) + str(high[i][1])))
-    print(tuple1)
-    #print(str(high[i][0].name) + str(high[i][1]))
+    #set the different risk levels based on relative water level
+    severe_stations = stations_level_over_threshold(stations, 1.5)
+    high_stations = stations_level_over_threshold(stations, 1.0)
+    low_stations = stations_level_over_threshold(stations, -100000)
+
+    # Add to dictionary. 
+    for station_obj, level in severe_stations:
+        if station_obj.name not in risk_dict:
+            risk_dict[station_obj.name] = "severe"
+
+    for station_obj, level in high_stations:
+        if station_obj.name not in risk_dict:
+            risk_dict[station_obj.name] = "high"
+
+    for station_obj, level in low_stations:
+        if station_obj.name not in risk_dict:
+            risk_dict[station_obj.name] = "Low"
+
+    # make tuple
+    final_list = list(risk_dict.items())
+
+    # Print every station name that has "severe" as the value
+    print("--- Stations with severe Risk ---")
+    for name, risk in final_list:
+        if risk == "severe":
+            print(name)
     
 
 
