@@ -16,8 +16,6 @@ def stations_level_over_threshold(stations, tol):
      if filtered[i][1]>tol:
          final.append(filtered[i])
 
-    
-
     return final
 
 
